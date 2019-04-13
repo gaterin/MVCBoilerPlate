@@ -1,5 +1,5 @@
 <?php
-echo "htaccess works";
+require_once 'Assets/GlobalFunctions.php';
 
 require_once 'Router/Router.php';
 require_once 'config.php';
