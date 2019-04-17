@@ -1,8 +1,13 @@
 <?php
 
-function renderView($viewToRender,$arrayToExtract=[]){
+// function head($headTo)
+// {
+//   $base = APPDIR;
+//   header("Location: ".$base.$headTo." ");
+// }
+function renderView($viewToRender,$arrayToExtract){
 
-  extract($arrayToExtract);
+  $result=$arrayToExtract;
   include_once "View/".$viewToRender.".php";
 }
 

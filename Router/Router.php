@@ -24,11 +24,19 @@ class Router
   }
 
   private function determinedDestination($filteredInput) {
-    $this->controller = array_shift($filteredInput);
-    $this->method = array_shift($filteredInput);
-    $this->params = $filteredInput;
-    $this->controllerFilePath = "Controller/". ucfirst($this->controller) . ".php";
-    vd($this->params);
+
+      $this->controller = array_shift($filteredInput);
+      $this->method = array_shift($filteredInput);
+      $this->params = $filteredInput;
+      $this->controllerFilePath = "Controller/". ucfirst($this->controller) . ".php";
+
+      if (!file_exists($this->controllerFilePath)){
+        $this->controller = "Home";
+        $this->method = "showHome";
+        $this->params = "";
+        $this->controllerFilePath = "Controller/Home.php";
+      }
+
   }
 
   private function sendToDestination()

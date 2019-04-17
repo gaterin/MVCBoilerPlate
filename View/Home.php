@@ -3,4 +3,5 @@
 
  ?>
 <h2>Home</h2>
-<p><?php echo $param1[0]; ?></p>
+<h4>Dit zijn wij</h4>
+<p>Dit is de ToolsForEver voorraad beheer systeem!</p>

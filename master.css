@@ -1,0 +1,12 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
+html{
+  background-color: lightyellow;
+}
+.icon{
+  /* padding-left: 50px; */
+}
+.nav-wrapper{
+  background-color: lightblue;
+}
