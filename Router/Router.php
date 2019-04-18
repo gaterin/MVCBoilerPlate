@@ -5,6 +5,7 @@
  */
 class Router
 {
+  private $auth;
   private $controllerFilePath;
   private $controller;
   private $method;
@@ -12,6 +13,7 @@ class Router
 
   function __construct()
   {
+
     $uri = $_SERVER['REQUEST_URI'];
     $filteredInput = $this->filterInput($uri);
     $determinedDestination = $this->determinedDestination($filteredInput);
@@ -35,8 +37,29 @@ class Router
         $this->method = "showHome";
         $this->params = "";
         $this->controllerFilePath = "Controller/Home.php";
-      }
 
+      }
+      // if (!method_exists($this->controller,$this->method)){
+      //   $this->controller = "Home";
+      //   $this->method = "showHome";
+      //   $this->params = "";
+      //   $this->controllerFilePath = "Controller/Home.php";
+      //
+      // }
+
+      $this->checkPermission();
+  }
+
+  private function checkPermission()
+  {
+    if($this->controller != "Home" && $this->controller != "Login" ){
+      if (empty($_SESSION['loggedInAs'])) {
+        $this->controller = "Home";
+        $this->method = "showHome";
+        $this->params = "";
+        $this->controllerFilePath = "Controller/Home.php";
+      }
+    }
   }
 
   private function sendToDestination()

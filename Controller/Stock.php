@@ -18,6 +18,7 @@ class Stock
       $resultProducts= $this->locationsAndProductsArray[0];
       $resultLocations = $this->locationsAndProductsArray[1];
       renderView('Stock',[$resultStock,$resultProducts,$resultLocations]);
+    
     }
 
     public function showAllSearched()
